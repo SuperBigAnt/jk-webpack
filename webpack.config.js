@@ -25,6 +25,11 @@ module.exports = {
             },
         },
     },
+    // resolve: {
+    //     alias: {
+    //         Util: path.resolve(__dirname, 'src/util/'),
+    //     }
+    // },
     plugins: [
         new HtmlWebpackPlugin({
             file: 'index.html',
