@@ -72,7 +72,7 @@ module.exports = {
             app.get('api/test.json', (req, res) => {
                 res.json({
                     code: '200',
-                    result: 'hello world'
+                    message: 'hello world'
                 })
             })
         }
