@@ -7,14 +7,14 @@ module.exports = {
     entry: ['babel-polyfill', './src/index.js'],
     output: {
         path: path.resolve(__dirname, 'dist'),
-        publicPath: '/rong/',
-        filename: '[name].[hash].js'
+        publicPath: '/rong',
+        filename: '[name].js'
     },
     optimization: {
         splitChunks: {
             chunks: 'all',
             minSize: 20000,
-            maxSize: 40000,
+            maxSize: 100000,
             cacheGroups: {
                 vendors: {
                     name: `chunk-vendors`,
@@ -33,10 +33,11 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             file: 'index.html',
-            template: 'src/index.html'
+            template: 'src/index.html',
+            minify: false,
         }),
         new MiniCssExtractPlugin({
-            filename: "[name].[contenthash].css",
+            filename: "[name].css",
             chunkFilename: "[id].css"
         }),
         new CleanWebpackPlugin()
