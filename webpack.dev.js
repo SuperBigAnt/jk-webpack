@@ -4,27 +4,28 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
-    entry: ['babel-polyfill', './src/index.js'],
+    // entry: ['babel-polyfill', './src/index.js'],
+    entry: ['./src/index.js'],
     output: {
         path: path.resolve(__dirname, 'dist'),
-        publicPath: '/rong',
+        publicPath: './',
         filename: '[name].js'
     },
-    optimization: {
-        splitChunks: {
-            chunks: 'all',
-            minSize: 20000,
-            maxSize: 40000,
-            cacheGroups: {
-                vendors: {
-                    name: `chunk-vendors`,
-                    test: /[\\/]node_modules[\\/]/,
-                    priority: -10,
-                    chunks: 'all'
-                },
-            },
-        },
-    },
+    // optimization: {
+    //     splitChunks: {
+    //         chunks: 'all',
+    //         minSize: 20000,
+    //         maxSize: 40000,
+    //         cacheGroups: {
+    //             vendors: {
+    //                 name: `chunk-vendors`,
+    //                 test: /[\\/]node_modules[\\/]/,
+    //                 priority: -10,
+    //                 chunks: 'all'
+    //             },
+    //         },
+    //     },
+    // },
     // resolve: {
     //     alias: {
     //         Util: path.resolve(__dirname, 'src/util/'),
@@ -40,7 +41,7 @@ module.exports = {
             filename: "[name].css",
             chunkFilename: "[id].css"
         }),
-        new CleanWebpackPlugin()
+        new CleanWebpackPlugin()    //自动清除原dist下的文件
     ],
     module: {
         rules: [
